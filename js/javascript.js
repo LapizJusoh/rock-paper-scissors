@@ -60,13 +60,15 @@ function playRound() {
     console.log(`Current score - Player: ${playerScore} - Computer: ${computerScore}`)
 }
 
-function game() {
+/*
+const playGame = () => {
     for(let i=0; i<5; i++) {
         playRound();
     }
 }
+*/
 
 let playerScore = 0;
 let computerScore = 0;
 
-game();
+playGame();
