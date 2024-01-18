@@ -3,51 +3,12 @@ const rockSelection = document.querySelector(`#rock`);
 const paperSelection = document.querySelector(`#paper`);
 const scissorsSelection = document.querySelector(`#scissors`);
 
-rockSelection.addEventListener(`click`, (e) => {
-    
-});
-
-paperSelection.addEventListener(`click`, (e) => {
-    
-});
-
-scissorsSelection.addEventListener(`click`, (e) => {
-    
-});
-
-
-function getComputerChoice () {
+const getComputerChoice = () => {
     return choiceSelection[Math.floor(Math.random() * 3)];
 }
 
-/*
-function getPlayerChoice () {
-    let choice = prompt('Type which to play: Rock, paper or scissors','none');
-    if (choice.toUpperCase() == 'ROCK') {
-        return 'ROCK';
-    } else if (choice.toUpperCase() == 'PAPER') {
-        return 'PAPER';
-    } else if (choice.toUpperCase() == 'SCISSORS') {
-        return 'SCISSORS';
-    } else {
-        console.log(`Invalid- please try again (type in 'rock, paper or scissors')`);
-        return getPlayerChoice();
-    }
-}
-*/
-
-const playerWin = (playerSelection,computerSelection) => {
-    console.log(`You win! ${playerSelection} beats ${computerSelection}!`);
-    playerScore++;
-}
-
-const playerLose = (playerSelection,computerSelection) => {
-    console.log(`You lose! ${playerSelection} lose to ${computerSelection}!`)
-    computerScore++;
-}
-
-function playRound() {
-    let playerSelection = getPlayerChoice();
+const playRound = (choice) => {
+    let playerSelection = choice;
     let computerSelection = getComputerChoice();
 
     if(playerSelection.toUpperCase() == 'ROCK') {
@@ -78,13 +39,36 @@ function playRound() {
     console.log(`Current score - Player: ${playerScore} - Computer: ${computerScore}`)
 }
 
-
 const playGame = () => {
     for(let i=0; i<5; i++) {
         playRound();
     }
 }
 
+rockSelection.addEventListener(`click`, () => {
+    let choice = 'ROCK'
+    playRound(choice);
+});
+
+paperSelection.addEventListener(`click`, () => {
+    let choice = 'PAPER'
+    playRound(choice);
+});
+
+scissorsSelection.addEventListener(`click`, () => {
+    let choice = 'SCISSORS'
+    playRound(choice);
+});
+
+const playerWin = (playerSelection,computerSelection) => {
+    console.log(`You win! Player's ${playerSelection} beats the computer's ${computerSelection}!`);
+    playerScore++;
+}
+
+const playerLose = (playerSelection,computerSelection) => {
+    console.log(`You lose! Player's ${playerSelection} loses to the computer's ${computerSelection}!`)
+    computerScore++;
+}
 
 let playerScore = 0;
 let computerScore = 0;
