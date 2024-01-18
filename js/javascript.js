@@ -2,6 +2,9 @@ const choiceSelection = ['ROCK','PAPER','SCISSORS'];
 const rockSelection = document.querySelector(`#rock`);
 const paperSelection = document.querySelector(`#paper`);
 const scissorsSelection = document.querySelector(`#scissors`);
+const currentRound = document.querySelector(`#current-round`);
+const results = document.querySelector(`#results`);
+const scoringBoard = document.querySelector(`#scoring-board`)
 
 const getComputerChoice = () => {
     return choiceSelection[Math.floor(Math.random() * 3)];
@@ -13,7 +16,7 @@ const playRound = (choice) => {
 
     if(playerSelection.toUpperCase() == 'ROCK') {
         if(computerSelection == 'ROCK') {
-            console.log('Tie!');
+            results.textContent = 'Tie!';
         } else if (computerSelection == 'PAPER') {
             playerLose(playerSelection,computerSelection);
         } else {
@@ -23,7 +26,7 @@ const playRound = (choice) => {
         if(computerSelection == 'ROCK') {
             playerWin(playerSelection,computerSelection)
         } else if (computerSelection == 'PAPER') {
-            console.log('Tie!');
+            results.textContent = 'Tie!';
         } else {
             playerLose(playerSelection,computerSelection);
         }
@@ -33,14 +36,15 @@ const playRound = (choice) => {
         } else if (computerSelection == 'PAPER') {
             playerWin(playerSelection,computerSelection);
         } else {
-            console.log('Tie!');
+            results.textContent = 'Tie!';
         }
     }
-    console.log(`Current score - Player: ${playerScore} - Computer: ${computerScore}`)
+    scoringBoard.textContent = `Current score - Player: ${playerScore} - Computer: ${computerScore}`;
 }
 
 const playGame = () => {
     for(let i=0; i<5; i++) {
+        currentRound.textContent = `<h1>Round ${i}</h1>`
         playRound();
     }
 }
@@ -61,12 +65,12 @@ scissorsSelection.addEventListener(`click`, () => {
 });
 
 const playerWin = (playerSelection,computerSelection) => {
-    console.log(`You win! Player's ${playerSelection} beats the computer's ${computerSelection}!`);
+    results.textContent = `You win! Player's ${playerSelection} beats the computer's ${computerSelection}!`;
     playerScore++;
 }
 
 const playerLose = (playerSelection,computerSelection) => {
-    console.log(`You lose! Player's ${playerSelection} loses to the computer's ${computerSelection}!`)
+    results.textContent = `You lose! Player's ${playerSelection} loses to the computer's ${computerSelection}!`;
     computerScore++;
 }
 
