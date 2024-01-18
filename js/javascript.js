@@ -1,9 +1,26 @@
 const choiceSelection = ['ROCK','PAPER','SCISSORS'];
+const rockSelection = document.querySelector(`#rock`);
+const paperSelection = document.querySelector(`#paper`);
+const scissorsSelection = document.querySelector(`#scissors`);
+
+rockSelection.addEventListener(`click`, (e) => {
+    
+});
+
+paperSelection.addEventListener(`click`, (e) => {
+    
+});
+
+scissorsSelection.addEventListener(`click`, (e) => {
+    
+});
+
 
 function getComputerChoice () {
     return choiceSelection[Math.floor(Math.random() * 3)];
 }
 
+/*
 function getPlayerChoice () {
     let choice = prompt('Type which to play: Rock, paper or scissors','none');
     if (choice.toUpperCase() == 'ROCK') {
@@ -17,6 +34,7 @@ function getPlayerChoice () {
         return getPlayerChoice();
     }
 }
+*/
 
 const playerWin = (playerSelection,computerSelection) => {
     console.log(`You win! ${playerSelection} beats ${computerSelection}!`);
@@ -60,15 +78,13 @@ function playRound() {
     console.log(`Current score - Player: ${playerScore} - Computer: ${computerScore}`)
 }
 
-/*
+
 const playGame = () => {
     for(let i=0; i<5; i++) {
         playRound();
     }
 }
-*/
+
 
 let playerScore = 0;
 let computerScore = 0;
-
-playGame();

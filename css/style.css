@@ -1,0 +1,12 @@
+.playerSelection {
+    display: flex;
+    list-style-type: none;
+}
+
+.playerSelection > li > button {
+    background-color: dodgerblue;
+    color: white;
+    font-weight: 700;
+    margin: 10px;
+    padding: 20px;
+}
